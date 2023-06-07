@@ -1,18 +1,23 @@
-import 'package:flash_chat/app/widgets/buttons/register_widget.dart';
-import 'package:flash_chat/app/widgets/text_fiallds/input_decoration_widget.dart';
+import 'package:flash_chat/modules/sigUp/controllers/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 
-class LandingView extends StatelessWidget {
-  const LandingView({Key? key}) : super(key: key);
+import 'package:get/get_state_manager/src/simple/get_view.dart';
+
+import '../../../app/widgets/buttons/register_widget.dart';
+import '../../../app/widgets/text_fiallds/input_decoration_widget.dart';
+
+class SignUpView extends GetView<SignUpController> {
+  const SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     const sizedBox = SizedBox(
       height: 20,
     );
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LandingView'),
+        title: const Text('SignUpView'),
         centerTitle: true,
       ),
       body: Center(
@@ -22,7 +27,9 @@ class LandingView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  controller.name.value = value;
+                },
                 decoration: registerDecoration.copyWith(
                   hintText: 'Name',
                   prefixIcon: const Icon(
@@ -32,7 +39,9 @@ class LandingView extends StatelessWidget {
               ),
               sizedBox,
               TextField(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  controller.email.value = value;
+                },
                 decoration: registerDecoration.copyWith(
                   hintText: 'Email',
                   prefixIcon: const Icon(Icons.email),
@@ -40,7 +49,9 @@ class LandingView extends StatelessWidget {
               ),
               sizedBox,
               TextField(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  controller.password.value = value;
+                },
                 decoration: registerDecoration.copyWith(
                   hintText: 'Password',
                   prefixIcon: const Icon(
@@ -48,6 +59,13 @@ class LandingView extends StatelessWidget {
                   ),
                 ),
               ),
+              sizedBox,
+              RegisterWidget(
+                text: 'Sign Up',
+                onTap: () {
+                  controller.signUp();
+                },
+              )
             ],
           ),
         ),
