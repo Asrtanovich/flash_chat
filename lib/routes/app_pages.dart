@@ -13,7 +13,7 @@ class AppPages {
       // binding: LandingB(),
     ),
     GetPage(
-      name: _Paths.SIGNUP, page: () => const SignUpView(),
+      name: _Paths.SIGNUP, page: () => SignUpView(),
       // binding: LandingB(),
     ),
   ];

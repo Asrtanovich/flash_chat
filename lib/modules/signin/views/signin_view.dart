@@ -1,21 +1,21 @@
 import 'package:flash_chat/app/constans/app_strings/app_strings.dart';
 import 'package:flash_chat/app/constans/app_text_style.dart/app_text_syle.dart';
 import 'package:flash_chat/app/widgets/buttons/register_widget.dart';
-import 'package:flash_chat/modules/sigUp/controllers/sign_up_controller.dart';
-import 'package:flash_chat/modules/signin/views/signin_view.dart';
+import 'package:flash_chat/app/widgets/text_fiallds/input_decoration_widget.dart';
+import 'package:flash_chat/modules/sigUp/views/sign_up_view.dart';
+
+// import 'package:flash_chat_kurs12/app/modules/signUp/views/sign_up_view.dart';
+// import 'package:flash_chat_kurs12/app/widgets/buttons/register_widget.dart';
+// import 'package:flash_chat_kurs12/app/widgets/text_fiallds/input_decoration_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
-import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:get/get.dart';
 
-import '../../../app/widgets/text_fiallds/input_decoration_widget.dart';
+import '../controllers/signin_controller.dart';
 
-class SignUpView extends GetView<SignUpController> {
-  SignUpView({Key? key}) : super(key: key);
-  final _controller = Get.put(SignUpController());
-
+class SigninView extends StatelessWidget {
+  SigninView({Key? key}) : super(key: key);
+  final _controller = Get.put<SigninController>(SigninController());
   @override
   Widget build(BuildContext context) {
     const sizedBox = SizedBox(
@@ -33,17 +33,6 @@ class SignUpView extends GetView<SignUpController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                onChanged: (value) {
-                  _controller.name.value = value;
-                },
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Name',
-                  prefixIcon: const Icon(
-                    Icons.person,
-                  ),
-                ),
-              ),
               sizedBox,
               TextField(
                 onChanged: (value) {
@@ -69,16 +58,16 @@ class SignUpView extends GetView<SignUpController> {
               Row(
                 children: [
                   const Text(
-                    'Already have an account?',
-                    style: AppTextStyle.black16Bold,
+                    'DoN\`t have an account?',
+                    style: AppTextStyle.black16,
                   ),
                   SizedBox(
-                    width: 15,
+                    width: 20,
                   ),
                   InkWell(
-                    onTap: () => Get.to(SigninView()),
+                    onTap: () => Get.to(SignUpView()),
                     child: const Text(
-                      AppStrings.signIn,
+                      AppStrings.signUp,
                       style: AppTextStyle.black16Bold,
                     ),
                   )
@@ -86,9 +75,9 @@ class SignUpView extends GetView<SignUpController> {
               ),
               sizedBox,
               RegisterWidget(
-                  text: AppStrings.signUp,
+                  text: AppStrings.signIn,
                   onTap: () {
-                    _controller.signUp();
+                    _controller.signIn();
                   })
             ],
           ),

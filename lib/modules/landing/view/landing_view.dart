@@ -1,6 +1,10 @@
 import 'package:flash_chat/app/widgets/buttons/register_widget.dart';
-import 'package:flash_chat/app/widgets/text_fiallds/input_decoration_widget.dart';
+import 'package:flash_chat/modules/sigUp/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
+import '../../signin/views/signin_view.dart';
 
 class LandingView extends StatelessWidget {
   const LandingView({Key? key}) : super(key: key);
@@ -21,33 +25,17 @@ class LandingView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                onChanged: (value) {},
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Name',
-                  prefixIcon: const Icon(
-                    Icons.person,
-                  ),
-                ),
-              ),
+              RegisterWidget(
+                  text: 'Sign In',
+                  onTap: () {
+                    Get.to(SigninView());
+                  }),
               sizedBox,
-              TextField(
-                onChanged: (value) {},
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email),
-                ),
-              ),
-              sizedBox,
-              TextField(
-                onChanged: (value) {},
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Password',
-                  prefixIcon: const Icon(
-                    Icons.key,
-                  ),
-                ),
-              ),
+              RegisterWidget(
+                  text: 'Sign Up',
+                  onTap: () {
+                    Get.to(SignUpView());
+                  }),
             ],
           ),
         ),
