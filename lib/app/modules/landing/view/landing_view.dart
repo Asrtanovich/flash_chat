@@ -1,5 +1,5 @@
 import 'package:flash_chat/app/widgets/buttons/register_widget.dart';
-import 'package:flash_chat/modules/sigUp/views/sign_up_view.dart';
+import 'package:flash_chat/app/modules/sigUp/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';

@@ -1,5 +1,5 @@
-import 'package:flash_chat/modules/landing/view/landing_view.dart';
-import 'package:flash_chat/modules/sigUp/views/sign_up_view.dart';
+import 'package:flash_chat/app/modules/landing/view/landing_view.dart';
+import 'package:flash_chat/app/modules/sigUp/views/sign_up_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
