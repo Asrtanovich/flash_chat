@@ -28,69 +28,72 @@ class SigninView extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              sizedBox,
-              TextField(
-                onChanged: (value) {
-                  _controller.email.value = value;
-                },
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email),
-                ),
-              ),
-              sizedBox,
-              TextField(
-                onChanged: (value) {
-                  _controller.password.value = value;
-                },
-                decoration: registerDecoration.copyWith(
-                  hintText: 'Password',
-                  prefixIcon: const Icon(
-                    Icons.key,
+        child: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                sizedBox,
+                TextField(
+                  onChanged: (value) {
+                    _controller.email.value = value;
+                  },
+                  decoration: registerDecoration.copyWith(
+                    hintText: 'Email',
+                    prefixIcon: const Icon(Icons.email),
                   ),
                 ),
-              ),
-              sizedBox,
-              Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'DoN\`t have an account?',
-                      style: AppTextStyle.black16Bold,
+                sizedBox,
+                TextField(
+                  onChanged: (value) {
+                    _controller.password.value = value;
+                  },
+                  decoration: registerDecoration.copyWith(
+                    hintText: 'Password',
+                    prefixIcon: const Icon(
+                      Icons.key,
                     ),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    color: Color.fromARGB(141, 31, 112, 177),
-                    height: 20,
-                    width: 60,
-                    child: InkWell(
-                      onTap: () => Get.to(SignUpView()),
-                      child: const Center(
-                        child: Text(
-                          AppStrings.signUp,
-                          style: AppTextStyle.black16,
-                        ),
+                ),
+                sizedBox,
+                Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'DoN\`t have an account?',
+                        style: AppTextStyle.black16Bold,
                       ),
                     ),
-                  )
-                ],
-              ),
-              sizedBox,
-              RegisterWidget(
-                  text: AppStrings.signIn,
-                  onTap: () {
-                    _controller.signIn();
-                  }),
-            ],
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      color: Color.fromARGB(141, 31, 112, 177),
+                      height: 20,
+                      width: 60,
+                      child: InkWell(
+                        onTap: () => Get.to(SignUpView()),
+                        child: const Center(
+                          child: Text(
+                            AppStrings.signUp,
+                            style: AppTextStyle.black16,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                sizedBox,
+                RegisterWidget(
+                    text: AppStrings.signIn,
+                    onTap: () {
+                      _controller.signIn();
+                    }),
+              ],
+            ),
           ),
         ),
       ),

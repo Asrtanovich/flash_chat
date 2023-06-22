@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'package:flash_chat/firebase_options.dart';
 import 'package:flash_chat/routes/app_pages.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 
-import 'firebase_options.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,9 +13,8 @@ void main() async {
   );
   runApp(
     GetMaterialApp(
-      debugShowCheckedModeBanner: false,
       title: "Application",
-      initialRoute: AppPages.INITTAL,
+      initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
   );

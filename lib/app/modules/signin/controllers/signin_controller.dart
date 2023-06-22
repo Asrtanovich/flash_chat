@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/app/modules/chat/view/chat_view.dart';
 // import 'package:flash_chat_kurs12/app/modules/chat/views/chat_view.dart';
 import 'package:get/get.dart';
 
@@ -11,10 +12,12 @@ class SigninController extends GetxController {
 
   Future<void> signIn() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.value,
-        password: password.value,
-      );
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+            email: email.value,
+            password: password.value,
+          )
+          .then((value) => {Get.to(ChatView())});
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         log('No user found for that email.');
